@@ -22,7 +22,7 @@
 1. MD5，MD5是不可逆的摘要算法，又称hash算法。一般仅用于密码
 用户注册的时候执行以下sql：
 ```sql
-insert into user (id,pwd) values (1,123456)
+insert into user (id,pwd) values (1,md5(123456))
 ```
 用户登录的时候执行以下sql：多次md5加密值是相同的
 ```sql
