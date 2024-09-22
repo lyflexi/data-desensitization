@@ -41,7 +41,7 @@ select * from user where id = 1
 所以对于加密算法，最终的解决方案是，数据库依然要存储原文，新建一个数据库或者表，专门存储手机号原文和用户信息如：
 ```sql
 id phone
-1  18337165791
+1  18333333333
 ```
 此数据库/表不对外开放
 
@@ -54,6 +54,29 @@ id phone
 - 取出注解的属性值
 - 策略模式，匹配预定义的脱敏策略进行脱敏
 ![数据脱敏.png](backend-desensitization/pic/%E6%95%B0%E6%8D%AE%E8%84%B1%E6%95%8F.png)
+
+mock请求：
+```shell
+http://{{ip}}:{{port}}/mock/1
+```
+测试结果如下：
+```java
+{
+    "code": "000000",
+    "message": "handle.success",
+    "data": {
+        "id": 1,
+        "usename": "lyflexi",
+        "password": "jgfdhadsga45t2gdf",
+        "realname": "刘岩",
+        "gender": 0,
+        "phone": "137****0000",
+        "idCard": "411381********0000",
+        "bankCard": "6379************00000"
+    },
+    "success": true
+}
+```
 
 
 

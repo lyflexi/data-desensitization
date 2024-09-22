@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://192.168.18.100:5432/LYDB?currentSchema=desensitive
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+    #使用了hikari连接池
+    hikari:
+      maximum-pool-size: 20
+
+  jpa:
+    properties:
+      hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/*.xml # 如果有Mapper XML文件的话
+  type-aliases-package: org.lyflexi.backenddesensitization.model # 实体类包路径
+  global-config:
+    db-config:
+      logic-delete-field: data_status # 全局逻辑删除字段名
+      logic-delete-value: 1 # 逻辑已删除值
+      logic-not-delete-value: 0 # 逻辑未删除值
+
+server:
+  port: 8080
