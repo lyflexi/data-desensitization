@@ -168,6 +168,7 @@ http://{{ip}}:{{port}}/mock/1
 }
 ```
 tips: 测试代码基于pgsql实现
+- 一键启动：[BackendDesensitizationApplication.java](backend-desensitization%2Fsrc%2Fmain%2Fjava%2Forg%2Flyflexi%2Fbackenddesensitization%2FBackendDesensitizationApplication.java)
 - 容器脚本见：[pgsql.sh](backend-desensitization%2Fsql%2Fpgsql.sh)
 - 数据库脚本见：[init.sql](backend-desensitization%2Fsql%2Finit.sql)
 
