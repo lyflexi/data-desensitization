@@ -167,7 +167,13 @@ http://{{ip}}:{{port}}/mock/1
     "success": true
 }
 ```
+tips: 测试代码基于pgsql实现
+- 容器脚本见：[pgsql.sh](backend-desensitization%2Fsql%2Fpgsql.sh)
+- 数据库脚本见：[init.sql](backend-desensitization%2Fsql%2Finit.sql)
 
+如果有需要，大家可以自己替换为mysql
+
+觉得好用，点个star⭐
 
 > reference : 
 > 
