@@ -77,6 +77,7 @@ id     encode(phone)        phone
 函数参数：
 - encrypted_string -它用于指定加密的字符串。
 - key_string -它用于指定用于解密encrypted_string的字符串。
+
 返回值：
 - AES_DECRYPT函数返回解密的字符串，如果检测到无效数据，则返回NULL。
 
@@ -96,6 +97,7 @@ WHERE AES_DECRYPT(encrypted_credit_card, 'my_secret_key') LIKE '4111%';
 不过在where语句中使用函数计算，将会导致索引失效，因此当数据量大的时候，可能会出现慢sql的情况
 
 4. 明文分词，大厂在用，如淘宝
+
 明文分词严格来说，其实不算新的技术，其本质依然是可逆的加解密，只是额外适配了密文的模糊查询
 > 根据4位英文字符（半角），2个中文字符（全角）为一个检索条件。将一个字段拆分为多个，分别加密后存储
 
@@ -107,6 +109,7 @@ WHERE AES_DECRYPT(encrypted_credit_card, 'my_secret_key') LIKE '4111%';
 - 第三组："obao"
 - 第四组："bao1"
 - 不足4个字符的部分可以补足，具体补足方式取决于你的加密算法
+
 最后将上述四组分词分别加密之后，作为新的列如extra_encrypted_column，单独进行存储
 
 理论上，你可以把所有可能的查询分词都冗余进去存储，这是一种非常典型的空间换时间的做法
